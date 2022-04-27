@@ -1,21 +1,19 @@
 pipeline {
-    agent any
-
+    agent any 
     stages {
-        stage('Checkout') {
+        stage('Build') { 
             steps {
-              checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '4374816f-1276-4f86-9a25-44ab81b45d6b', url: 'https://github.com/vansikasingh/devops_practice.git']]])
+                echo 'build '
             }
         }
-        stage('Build') {
-            steps{
-                git branch: 'main', credentialsId: '4374816f-1276-4f86-9a25-44ab81b45d6b', url: 'https://github.com/vansikasingh/devops_practice.git'
-                bat 'credits.py'
+        stage('Test') { 
+            steps {
+                echo 'test '
             }
         }
-        stage('Test'){
-            steps{
-                echo 'the job has been tested'
+        stage('Deploy') { 
+            steps {
+                echo 'deploy '
             }
         }
     }
