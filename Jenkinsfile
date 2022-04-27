@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps{
                 git branch: 'main', credentialsId: '4374816f-1276-4f86-9a25-44ab81b45d6b', url: 'https://github.com/vansikasingh/devops_practice.git'
-                bat 'Credits.ipynb'
+                bat 'credits.py'
             }
         }
         stage('Test'){
